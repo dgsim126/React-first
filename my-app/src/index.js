@@ -1,20 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client'; // React 18용
+import ReactDOM from 'react-dom/client'; // ✅ React 18용
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import Clock from './chapter_04/Clock';
+import CommentList from './chapter_05/CommentList';
 
-const container = document.getElementById('root');
-const root = ReactDOM.createRoot(container);
-
-setInterval(() => {
-  root.render(
-    <React.StrictMode>
-      <Clock />
-    </React.StrictMode>
-  );
-}, 1000);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <CommentList />
+  </React.StrictMode>
+);
 
 reportWebVitals();
