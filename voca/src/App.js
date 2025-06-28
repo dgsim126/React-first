@@ -3,15 +3,12 @@ import Hello from './component/Hello';
 import Welcome from './component/Welcom';
 
 function App() {
-  const name= "Donggeun"
-  const naver= {
-    name: "NAVER",
-    url: "https://naver.com"
-  }
 
   return (
     <div className="App">
-      <Hello />
+      <Hello age={10}/>
+      <Hello age={20}/>
+      <Hello age={30}/>
     </div>
   );
 }
