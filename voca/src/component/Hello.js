@@ -1,23 +1,20 @@
+import { useState } from "react";
 import World from "./World";
 
 const Hello= function(){
-    function showName(){
-        console.log("Donggeun");
-    }
-    function showAge(age){
-        console.log(age)
-    }
-    function showText(e){
-        console.log(e.target.value)
+    // let name= "Mike";
+    const [name, setName]= useState("Mike");
+
+    function changeName(){
+        const newName= name=== "Mike"?"Jane":"Mike";
+        setName(newName);
     }
 
     return (
         <div>
-            <h1>Hello</h1>
-            <button onClick={showName}>Show name</button>
-            <button onClick={() => {showAge(10);}}>Show age</button>
-
-            <input type="text" onChange={showText}/>
+            <h1>State</h1>
+            <h2>{name}</h2>
+            <button onClick={changeName}>Change</button>
         </div> 
     
     )
