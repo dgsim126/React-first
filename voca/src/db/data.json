@@ -93,6 +93,13 @@
       "eng": "computer",
       "kor": "컴퓨타",
       "isDone": false
+    },
+    {
+      "id": "f554",
+      "day": "3",
+      "eng": "",
+      "kor": "",
+      "isDone": false
     }
   ]
 }

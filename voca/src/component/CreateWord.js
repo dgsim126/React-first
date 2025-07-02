@@ -1,10 +1,11 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
 export default function CreateWord() {
     const days = useFetch("http://localhost:3001/days");
     const navigate = useNavigate();
+    const [isLoading, setIsLoading]= useState(false)
 
     const engRef = useRef(null);
     const korRef = useRef(null);
@@ -13,7 +14,10 @@ export default function CreateWord() {
     function onSubmit(e) {
         e.preventDefault();
 
-        fetch(`http://localhost:3001/words/`, {
+        if(!isLoading){
+            setIsLoading(true)
+
+            fetch(`http://localhost:3001/words/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -30,6 +34,7 @@ export default function CreateWord() {
                 navigate(`/day/${dayRef.current.value}`);
             }
         });
+        }
     }
 
     return (
@@ -52,7 +57,7 @@ export default function CreateWord() {
                     ))}
                 </select>
             </div>
-            <button>저장</button>
+            <button>{isLoading ? "Saving..." : "저장"}</button>
         </form>
     );
 }
